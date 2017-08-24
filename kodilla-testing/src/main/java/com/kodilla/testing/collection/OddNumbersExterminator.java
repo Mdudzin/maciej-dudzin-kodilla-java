@@ -6,7 +6,7 @@ public class OddNumbersExterminator {
 
     public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
 
-        ArrayList<Integer> oddNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
 
         int temporaryValue = 0;
 
@@ -16,13 +16,13 @@ public class OddNumbersExterminator {
 
             if (temporaryValue % 2 == 0) {
 
-                oddNumbers.add(temporaryValue);
+                evenNumbers.add(temporaryValue);
 
             }
 
         }
 
-        return oddNumbers;
+        return evenNumbers;
     }
 
 }

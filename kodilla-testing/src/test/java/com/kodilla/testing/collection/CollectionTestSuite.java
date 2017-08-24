@@ -26,16 +26,14 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList() {
 
-        //Given//
+
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
 
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
-        //When//
         exterminator.exterminate(emptyList);
 
-        //Then//
-        Assert.assertTrue();
+        //Assert.assertTrue();
 
 
     }
@@ -43,14 +41,12 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
 
-        //Given//
         ArrayList<Integer> theList = new ArrayList<Integer>();
 
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
         Random theGenerator = new Random();
 
-        //When//
         for(int n=0; n<100; n++){
 
             theList.add(theGenerator.nextInt(100));
@@ -59,8 +55,7 @@ public class CollectionTestSuite {
 
         exterminator.exterminate(theList);
 
-        //Then//
-        Assert.assertTrue();
+        //Assert.assertTrue();
 
     }
 }
