@@ -51,10 +51,9 @@ public class StatisticsManager {
         double postPerUser = postsQuantity / userQuantity;
         double commentPerUser = commentsQuantity / userQuantity;
         double commentPerPost = commentsQuantity / postsQuantity;
-
     }
 
-    public void ShowStatistics() {
+    public void showStatistics() {
 
         System.out.println(userQuantity);
         System.out.println(postsQuantity);
@@ -62,6 +61,5 @@ public class StatisticsManager {
         System.out.println(postPerUser);
         System.out.println(commentPerUser);
         System.out.println(commentPerPost);
-
     }
 }
