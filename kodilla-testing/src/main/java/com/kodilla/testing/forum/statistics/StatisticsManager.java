@@ -2,7 +2,6 @@ package com.kodilla.testing.forum.statistics;
 
 public class StatisticsManager {
 
-    private Statistics statistics;
     private int userQuantity;
     private int postsQuantity;
     private int commentsQuantity;
@@ -10,14 +9,6 @@ public class StatisticsManager {
     private double commentPerUser;
     private double commentPerPost;
 
-    public StatisticsManager(Statistics statistics) {
-
-        this.statistics = statistics;
-    }
-
-    public Statistics getStatistics() {
-        return statistics;
-    }
 
     public int getUserQuantity() {
         return userQuantity;
@@ -45,12 +36,12 @@ public class StatisticsManager {
 
     public void calculateAdvStatistics(Statistics statistics) {
 
-        int userQuantity = statistics.usersNames().size();
-        int postsQuantity = statistics.postsCount();
-        int commentsQuantity = statistics.commentsCount();
-        double postPerUser = postsQuantity / userQuantity;
-        double commentPerUser = commentsQuantity / userQuantity;
-        double commentPerPost = commentsQuantity / postsQuantity;
+        userQuantity = statistics.usersNames().size();
+        postsQuantity = statistics.postsCount();
+        commentsQuantity = statistics.commentsCount();
+        postPerUser = postsQuantity / userQuantity;
+        commentPerUser = commentsQuantity / userQuantity;
+        commentPerPost = commentsQuantity / postsQuantity;
     }
 
     public void showStatistics() {
