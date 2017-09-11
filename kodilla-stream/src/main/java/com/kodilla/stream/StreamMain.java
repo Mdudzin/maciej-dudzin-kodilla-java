@@ -10,8 +10,8 @@ public class StreamMain {
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
-        System.out.println(poemBeautifier.beautify("Hello world!", simpleText -> simpleText.toLowerCase()));
-        System.out.println(poemBeautifier.beautify("Hello world!", simpleText -> simpleText.toUpperCase()));
+        System.out.println(poemBeautifier.beautify("Hello world!", String::toLowerCase));
+        System.out.println(poemBeautifier.beautify("Hello world!", String::toUpperCase));
         System.out.println(poemBeautifier.beautify("Hello world!", simpleText -> "ABC " + simpleText + " ABC"));
         System.out.println(poemBeautifier.beautify("Hello world!", simpleText -> "*******" + simpleText + "*******"));
     }
