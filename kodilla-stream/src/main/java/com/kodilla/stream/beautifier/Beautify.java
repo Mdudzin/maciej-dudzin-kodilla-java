@@ -2,7 +2,7 @@ package com.kodilla.stream.beautifier;
 
 import com.kodilla.stream.iterate.NumbersGenerator;
 
-public class StreamMain2 {
+public class Beautify {
 
     public static void main(String[] args) {
 
