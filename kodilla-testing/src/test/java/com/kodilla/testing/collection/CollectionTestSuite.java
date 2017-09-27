@@ -26,36 +26,41 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList() {
 
-
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
-
+        //Given//
+        ArrayList<Integer> emptyList = new ArrayList<>();
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
-        exterminator.exterminate(emptyList);
+        //When//
+        boolean result = exterminator.exterminate(emptyList).isEmpty();
 
-        //Assert.assertTrue();
-
-
+        //Then//
+        Assert.assertTrue(result);
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
 
+        //Given//
         ArrayList<Integer> theList = new ArrayList<Integer>();
-
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-
         Random theGenerator = new Random();
 
         for(int n=0; n<100; n++){
-
             theList.add(theGenerator.nextInt(100));
-
         }
 
-        exterminator.exterminate(theList);
+        //When//
+        boolean result1 = exterminator.exterminate(theList).contains(1);
+        boolean result2 = exterminator.exterminate(theList).contains(3);
+        boolean result3 = exterminator.exterminate(theList).contains(5);
+        boolean result4 = exterminator.exterminate(theList).contains(7);
+        boolean result5 = exterminator.exterminate(theList).contains(9);
 
-        //Assert.assertTrue();
-
+        //Then - sprawdzamy czy lista wynikowa zawiera wskazane wyżej liczby nieparzyste//
+        Assert.assertFalse(result1);
+        Assert.assertFalse(result2);
+        Assert.assertFalse(result3);
+        Assert.assertFalse(result4);
+        Assert.assertFalse(result5);
     }
 }

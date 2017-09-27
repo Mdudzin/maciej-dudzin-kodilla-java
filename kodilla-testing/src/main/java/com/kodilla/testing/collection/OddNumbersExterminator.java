@@ -17,12 +17,8 @@ public class OddNumbersExterminator {
             if (temporaryValue % 2 == 0) {
 
                 evenNumbers.add(temporaryValue);
-
             }
-
         }
-
         return evenNumbers;
     }
-
 }
