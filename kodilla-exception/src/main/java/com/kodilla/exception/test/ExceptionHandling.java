@@ -11,7 +11,7 @@ public class ExceptionHandling {
 
         } catch (Exception e) {
 
-            System.err.println("Generic error! " + e);
+            System.err.println("Generic exception! " + e);
         }
 
     }
