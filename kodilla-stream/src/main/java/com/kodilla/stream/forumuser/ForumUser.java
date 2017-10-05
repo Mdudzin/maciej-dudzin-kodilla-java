@@ -39,7 +39,7 @@ public class ForumUser {
     }
 
     public int getAge() {
-            return Period.between(birthDate, LocalDate.of(2017, 9, 14)).getYears();
+            return Period.between(birthDate, LocalDate.now()).getYears();
     }
 
     @Override

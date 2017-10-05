@@ -13,14 +13,12 @@ public class CollectionTestSuite {
     public void before() {
 
         System.out.println("Test Case: begin");
-
     }
 
     @After
     public void after() {
 
         System.out.println("Test Case: end");
-
     }
 
     @Test

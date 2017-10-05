@@ -3,8 +3,10 @@ package com.kodilla.stream.portfolio;
 import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -15,6 +17,7 @@ public class BoardTestSuite {
         User user2 = new User("projectmanager1", "Nina White");
         User user3 = new User("developer2", "Emilia Stephanson");
         User user4 = new User("developer3", "Konrad Bridge");
+
         //tasks
         Task task1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
@@ -53,16 +56,20 @@ public class BoardTestSuite {
                 user2,
                 LocalDate.now().minusDays(15),
                 LocalDate.now().minusDays(2));
+
         //taskLists
         TaskList taskListToDo = new TaskList("To do");
         taskListToDo.addTask(task1);
         taskListToDo.addTask(task3);
+
         TaskList taskListInProgress = new TaskList("In progress");
         taskListInProgress.addTask(task5);
         taskListInProgress.addTask(task4);
         taskListInProgress.addTask(task2);
+
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
+
         //board
         Board project = new Board("Project Weather Prediction");
         project.addTaskList(taskListToDo);
@@ -138,6 +145,18 @@ public class BoardTestSuite {
 
     @Test
     public void testAddTaskListAverageWorkingOnTask() {
+        //Given
+        Board project = prepareTestData();
 
+        //When
+        List<TaskList> tasksInProgress = new ArrayList<>();
+        tasksInProgress.add(new TaskList("In progress"));
+        List<Long> daysQuantity = project.getTaskLists().stream()
+                .filter(tasksInProgress::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> t.getCreated().until(LocalDate.now(), ChronoUnit.DAYS))
+                .collect(Collectors.toList());
+
+        System.out.println(daysQuantity);
     }
 }
