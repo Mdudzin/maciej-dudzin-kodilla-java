@@ -46,10 +46,14 @@ public class DbManagerTestSuite {
         DbManager dbManager = DbManager.getInstance();
 
         //When
-        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(P.USER_ID) AS POSTS_NUMBER\n" +
+        String sqlQuery = "SELECT * FROM\n" +
+                "(\n" +
+                "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(P.USER_ID) AS POSTS_NUMBER\n" +
                 "FROM USERS U, POSTS P\n" +
                 "WHERE U.ID = P.USER_ID\n" +
-                "GROUP BY USER_ID;";
+                "GROUP BY USER_ID\n" +
+                ") as innerTable\n" +
+                "WHERE POSTS_NUMBER >= 2";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
 
@@ -63,6 +67,6 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(4, counter);
+        Assert.assertEquals(1, counter);
     }
 }
