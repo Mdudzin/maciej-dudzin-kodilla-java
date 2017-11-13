@@ -4,9 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "ITEMS")
-public class Item {
+
+public class Item {/*
     private int id;
     private Product product;
     private BigDecimal price;
@@ -88,5 +87,5 @@ public class Item {
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
-    }
+    }*/
 }

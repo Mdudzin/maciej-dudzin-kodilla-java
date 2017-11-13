@@ -5,9 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "INVOICES")
-public class Invoice {
+
+public class Invoice {/*
     private int id;
     private String number;
     private List<Item> items = new ArrayList<>();
@@ -53,5 +52,5 @@ public class Invoice {
 
     public void setItems(List<Item> items) {
         this.items = items;
-    }
+    }*/
 }

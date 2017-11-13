@@ -22,13 +22,13 @@ public class TaskListDaoTestSuite {
     private TaskListDao taskListDao;
     @Autowired
     private TaskDao taskDao;
-    private static final String LIST_NAME = "Lista1";
+    private static final String LISTNAME = "Lista1";
     private static final String DESCRIPTION = "Testowa lista Kodilla";
 
     @Test
     public void testFindByListName() {
         //Given
-        TaskList taskList = new TaskList(LIST_NAME, DESCRIPTION);
+        TaskList taskList = new TaskList(LISTNAME, DESCRIPTION);
         taskListDao.save(taskList);
         String name = taskList.getListName();
 
@@ -37,9 +37,9 @@ public class TaskListDaoTestSuite {
 
         //Then
         Assert.assertEquals(1, result.size());
+        int id = taskList.getId();
 
         //CleanUp
-        int id = result.get(0).getId();
         taskListDao.delete(id);
     }
 
@@ -55,7 +55,7 @@ public class TaskListDaoTestSuite {
         task.setTaskFinancialDetails(tfd);
         task2.setTaskFinancialDetails(tfd2);
 
-        TaskList taskList = new TaskList(LIST_NAME, "ToDo tasks");
+        TaskList taskList = new TaskList(LISTNAME, "ToDo tasks");
 
         taskList.getTasks().add(task);
         taskList.getTasks().add(task2);
@@ -73,14 +73,13 @@ public class TaskListDaoTestSuite {
         //CleanUp
         taskListDao.delete(id);
     }
-
     @Test
     public void testNamedQueries() {
         //Given
         Task task1 = new Task("Test: Study Hibernate", 3);
         Task task2 = new Task("Test: Practice Named Queries", 6);
         Task task3 = new Task("Test: Study native queries", 7);
-        Task task4 = new Task("Test: Makse some tests", 13);
+        Task task4 = new Task("Test: Make some tests", 13);
 
         TaskFinancialDetails tfd1 = new TaskFinancialDetails(new BigDecimal(5), false);
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
@@ -92,7 +91,7 @@ public class TaskListDaoTestSuite {
         task3.setTaskFinancialDetails(tfd3);
         task4.setTaskFinancialDetails(tfd4);
 
-        TaskList taskList = new TaskList(LIST_NAME, "ToDo tasks");
+        TaskList taskList = new TaskList(LISTNAME, "ToDo tasks");
         taskList.getTasks().add(task1);
         taskList.getTasks().add(task2);
         taskList.getTasks().add(task3);
@@ -109,14 +108,12 @@ public class TaskListDaoTestSuite {
         //When
         List<Task> longTasks = taskDao.retrieveLongTasks();
         List<Task> shortTasks = taskDao.retrieveShortTasks();
-        List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
         List<Task> durationLongerThanTasks = taskDao.retrieveTasksWithDurationLongerThan(6);
 
         //Then
         try {
             Assert.assertEquals(1, longTasks.size());
             Assert.assertEquals(3, shortTasks.size());
-            Assert.assertEquals(3, enoughTimeTasks.size());
             Assert.assertEquals(2, durationLongerThanTasks.size());
         } finally {
             //CleanUp

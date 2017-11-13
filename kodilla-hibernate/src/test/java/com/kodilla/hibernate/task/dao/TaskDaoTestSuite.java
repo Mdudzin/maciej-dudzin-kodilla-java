@@ -2,6 +2,7 @@ package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
+import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,6 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TaskDaoTestSuite {
-
     @Autowired
     private TaskDao taskDao;
     private static final String DESCRIPTION = "Test: Learn Hibernate";
@@ -36,7 +36,6 @@ public class TaskDaoTestSuite {
         //CleanUp
         taskDao.delete(id);
     }
-
     @Test
     public void testTaskDaoFindByDuration() {
         //Given
@@ -54,7 +53,6 @@ public class TaskDaoTestSuite {
         int id = readTasks.get(0).getId();
         taskDao.delete(id);
     }
-
     @Test
     public void testTaskDaoSaveWithFinancialDetails() {
         //Given

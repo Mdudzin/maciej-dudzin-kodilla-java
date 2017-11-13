@@ -3,9 +3,8 @@ package com.kodilla.hibernate.invoice;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "Products")
-public class Product {
+
+public class Product {/*
     private int id;
     private String name;
     private Item item;
@@ -47,5 +46,5 @@ public class Product {
 
     public void setItem(Item item) {
         this.item = item;
-    }
+    }*/
 }
