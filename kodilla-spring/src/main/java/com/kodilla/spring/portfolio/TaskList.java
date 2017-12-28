@@ -3,9 +3,15 @@ package com.kodilla.spring.portfolio;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskList {
+public final class TaskList {
 
-    public TaskList(List<String> tasks) {
-        tasks = new ArrayList<>();
+    List<String> tasks;
+
+    TaskList() {
+        this.tasks = new ArrayList<>();
+    }
+
+    public List<String> getTasks() {
+        return tasks;
     }
 }
